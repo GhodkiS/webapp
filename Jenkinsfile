@@ -5,8 +5,8 @@ pipeline {
             agent { dockerfile true }
             steps {
                 
-                sh 'node --version'
-                sh 'svn --version'
+                sh 'java --version'
+                sh 'mvn --version'
             }
         }
     }
