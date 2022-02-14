@@ -4,7 +4,7 @@ pipeline {
         stage('compile test and destroy') {
             agent { 
                   dockerfile {
-                    args '-v /tmp:/temp/webest/target'
+                    args '-v /tmp/webapp:/temp/webest/target'
         
                     } 
                
