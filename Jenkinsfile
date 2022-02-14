@@ -2,7 +2,10 @@ pipeline {
    agent any
    stages {
         stage('compile test and destroy') {
-            agent { dockerfile true }
+            agent { 
+                   
+               args '-v /tmp:/temp/webest/target'
+            }
             steps {
                 
                 sh 'java --version'
