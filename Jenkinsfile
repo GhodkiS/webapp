@@ -1,8 +1,10 @@
 pipeline {
+   agent any
    stages {
         stage('compile test and destroy') {
+            agent { dockerfile true }
             steps {
-                agent { dockerfile true }
+                
                 sh 'node --version'
                 sh 'svn --version'
             }
