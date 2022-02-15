@@ -11,9 +11,8 @@ pipeline {
             }
             steps {
                 
-                sh 'java --version'
-                sh 'mvn --version'
-                sh 'mvn clean package'
+                sh 'cd /temp/webtest'
+               sh 'ls'
                 
             }
         }
