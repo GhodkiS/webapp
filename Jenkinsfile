@@ -9,9 +9,7 @@ pipeline {
                 sh 'pwd'
                 sh 'docker rm mavencontainer'
                 sh 'docker rmi mavenfromjenkins:1.0'
-                sh 'cd $WORKSPACE/output'
-                sh 'pwd'
-                sh 'ls -la'
+                sh 'ls -la output'
              }
            
             
