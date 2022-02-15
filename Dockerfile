@@ -4,5 +4,6 @@ RUN mkdir /tmp/${FOO}
 COPY pom.xml /tmp/${FOO}/pom.xml
 COPY src /tmp/${FOO}/src
 WORKDIR /tmp/${FOO}
+RUN mkdir output
 RUN mkdir target
 CMD ["mvn","clean","package"]
