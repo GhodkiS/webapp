@@ -43,7 +43,7 @@
          <executions>
         <execution>
             <id>copy-resource-one</id>
-            <phase>generate-sources</phase>
+            <phase>package</phase>
             <goals>
                 <goal>copy-resources</goal>
             </goals>
