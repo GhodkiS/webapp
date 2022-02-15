@@ -6,7 +6,7 @@ pipeline {
                 sh 'docker rm mavencontainer'
                 sh 'docker rmi mavenfromjenkins:1.0'
                 sh 'docker build -t mavenfromjenkins:1.0 .'
-                sh 'docker run -t --name mavencontainer mavenfromjenkins:1.0
+                sh 'docker run -t --name mavencontainer mavenfromjenkins:1.0'
                 sh 'pwd'
                 
                 
