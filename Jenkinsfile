@@ -3,9 +3,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'pwd'
-                sh 'docker ps -a'
-                sh 'docker images'
+                sh 'docker build -t mavenfromjenkins .'
+                sh 'docker run -t --name mavencontainer mavenfromjenkins:latest'
                
             }
         }
