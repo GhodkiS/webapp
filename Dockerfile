@@ -8,4 +8,4 @@ COPY src /tmp/${FOO}/src
 
 WORKDIR /tmp/${FOO}
 
-CMD ["mvn", "package"]
+CMD ["mvn", "clean package"]
