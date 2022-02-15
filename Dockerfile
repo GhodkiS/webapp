@@ -5,4 +5,4 @@ COPY pom.xml /tmp/${FOO}/pom.xml
 COPY src /tmp/${FOO}/src
 WORKDIR /tmp/${FOO}
 RUN mkdir target
-CMD ["mvn","clean","package","copy-resources"]
+CMD ["mvn","clean","package"]
