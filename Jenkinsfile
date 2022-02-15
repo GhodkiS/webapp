@@ -5,6 +5,7 @@ pipeline {
             agent { dockerfile true }
             steps {
                 sh 'pwd'
+                sh 'ls -ali / | sed "2!d" |awk {"print $1"}'
                
             }
         }
