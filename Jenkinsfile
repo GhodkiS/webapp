@@ -1,17 +1,11 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Test') {
-            agent { 
-               dockerfile
-                {
-                    args '-v ${workspace}:/tmp/webtest -w /tmp/webtest'
-                }
-                   
-                    }
             steps {
                 sh 'pwd'
-                sh 'cat /proc/1/cgroup'
+                sh 'docker ps -a'
+                sh 'docker images'
                
             }
         }
