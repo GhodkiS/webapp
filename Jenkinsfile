@@ -3,16 +3,11 @@ pipeline {
    stages {
         stage('compile test and destroy') {
             agent { 
-                  dockerfile {
-                    args '-v /tmp/webapp:/temp/webest/target'
-        
-                    } 
-               
+               dockerfile true
             }
             steps {
                 
-                sh 'cd /temp/webtest'
-               sh 'ls'
+                sh 'pwd'
                 
             }
         }
