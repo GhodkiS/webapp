@@ -1,2 +1,2 @@
 FROM tomcat:latest
-COPY testfile /usr/local/tomcat/webapps/testfile
+COPY output/webapp.war /usr/local/tomcat/webapps/webapp.war
