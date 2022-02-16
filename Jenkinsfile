@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Read') {
             steps {
-                sh 'cat testfile'
+                
+                sh 'docker build -t webappontomocat -f Dockerfile.tomcat .'
              }
         }
            
