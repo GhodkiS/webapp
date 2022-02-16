@@ -9,6 +9,7 @@ pipeline {
                 sh 'docker rm mavencontainer'
                 sh 'docker rmi mavenfromjenkins:1.0'
              }
+        }
        stage('Read') {
             steps {
                 
