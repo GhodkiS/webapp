@@ -1,2 +1,3 @@
 FROM tomcat:latest
-COPY output/webapp.war /usr/local/tomcat/webapps/webapp.war
+ARG WK_SPACE
+COPY $WK_SPACE/output/webapp.war /usr/local/tomcat/webapps/webapp.war
