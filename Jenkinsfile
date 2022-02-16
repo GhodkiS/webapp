@@ -13,7 +13,7 @@ pipeline {
        stage('Read') {
             steps {
                 
-                sh 'docker build -t webappontomcat:1.0 -f Dockerfile.tomcat output'
+                sh 'docker build -t webappontomcat:1.0 -f Dockerfile.tomcat --build-arg WK_SPACE=$WORKSPACE $WORKSPACE/output'
              }
            
             
