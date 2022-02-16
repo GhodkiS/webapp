@@ -15,6 +15,7 @@ pipeline {
                 
                 sh 'docker build -t ghodkis/javamavenproject:1.0 -f Dockerfile.tomcat $WORKSPACE/output'
              }
+       }
        stage('Push') {
             steps {
                 withCredentials([string(credentialsId: 'dhubpwd', variable: 'dhubpwd')]) {
