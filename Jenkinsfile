@@ -13,7 +13,7 @@ pipeline {
        stage('Read') {
             steps {
                 
-                sh 'docker build -t webappontomcat:1.0 -f Dockerfile.tomcat --build-arg WAR_FILE="$WORKSPACE/output/webapp.war" $WORKSPACE/output'
+                sh 'docker build -t webappontomcat:1.0 -f Dockerfile.tomcat $WORKSPACE/output'
              }
            
             
