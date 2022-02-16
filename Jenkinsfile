@@ -13,7 +13,14 @@ pipeline {
        stage('Read') {
             steps {
                 
-                sh 'docker build -t webappontomcat:1.0 -f Dockerfile.tomcat $WORKSPACE/output'
+                sh 'docker build -t ghodkis/javamavenproject:1.0 -f Dockerfile.tomcat $WORKSPACE/output'
+             }
+       stage('Push') {
+            steps {
+                
+                sh 'docker login -u ghodkis -p ${dhubpwd}'
+                sh 'docker push ghodkis/javamavenproject:1.0'
+                sh 'docker rmi ghodkis/javamavenproject:1.0'
              }
            
             
