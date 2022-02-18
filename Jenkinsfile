@@ -30,7 +30,7 @@ pipeline {
        }
           stage('Deploy') {
             steps {
-                ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible', inventory: 'webserver.yml', playbook: 'webserver.yml'
+                ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible', inventory: 'webserver.inv', playbook: 'webserver.yml'
              }
            
             
