@@ -27,6 +27,7 @@ pipeline {
                 sh 'docker push ghodkis/javamavenproject:1.0'
                 sh 'docker rmi ghodkis/javamavenproject:1.0'
              }
+       }
           stage('Push') {
             steps {
                 ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible', inventory: 'webserver.yml', playbook: 'webserver.yml'
