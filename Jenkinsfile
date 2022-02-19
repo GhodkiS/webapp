@@ -34,7 +34,7 @@ pipeline {
        stage('Deploy') {
             steps {
                 withCredentials([string(credentialsId: 'dhubpwd', variable: 'dhubpwd')]) {
-                ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible',extras: "-e password=${dhubpwd}",extras:"-e dockertag=${docker_tag}", inventory: 'webserver.inv', playbook: 'webserver.yml'
+                ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible',extras: "-e password=${dhubpwd},-e dockertag=${docker_tag}", inventory: 'webserver.inv', playbook: 'webserver.yml'
                  }
             }
             
