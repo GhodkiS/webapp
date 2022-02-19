@@ -13,12 +13,11 @@
        state: present
     - name: Install Docker
       apt: 
-       name: docker
+       name: docker.io
        state: present
     - name: Start Docker
-      ansible.builtin.systemd:
+      service:
        state: started
-       daemon_reload: yes
        enabled: yes
        name: docker
     - name: Install docker-py python module
