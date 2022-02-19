@@ -1,4 +1,4 @@
 [dev]
 172.31.28.20
 [dev:vars]
- ansible_user = ubuntu
+ansible_user = ubuntu
