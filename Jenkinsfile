@@ -1,5 +1,8 @@
 pipeline {
     agent {label 'node1'}
+    environment {
+       docker_tag = "gitVersion"
+    } 
     stages {
         stage('Test') {
             steps {
@@ -13,7 +16,7 @@ pipeline {
        stage('Read') {
             steps {
                 
-                sh 'docker build -t ghodkis/javamavenproject:1.0 -f Dockerfile.tomcat $WORKSPACE/output'
+                sh 'docker build -t ghodkis/javamavenproject:$docker_tag -f Dockerfile.tomcat $WORKSPACE/output'
              }
        }
        stage('Push') {
@@ -24,17 +27,22 @@ pipeline {
                     }
                 
                 
-                sh 'docker push ghodkis/javamavenproject:1.0'
-                sh 'docker rmi ghodkis/javamavenproject:1.0'
+                sh 'docker push ghodkis/javamavenproject:${docker_tag}'
+                sh 'docker rmi ghodkis/javamavenproject:${docker_tag}'
              }
        }
        stage('Deploy') {
             steps {
                 withCredentials([string(credentialsId: 'dhubpwd', variable: 'dhubpwd')]) {
-                ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible',extras: "-e password=${dhubpwd}", inventory: 'webserver.inv', playbook: 'webserver.yml'
+                ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible',extras: "-e password=${dhubpwd} dockertag=${docker_tag}", inventory: 'webserver.inv', playbook: 'webserver.yml'
                  }
             }
             
       }
     }
+}
+def gitVersion()
+{
+    def commithash = sh returnStdout: true, script: 'git rev-parse --short HEAD'
+    return commithash
 }
