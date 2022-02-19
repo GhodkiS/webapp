@@ -15,13 +15,12 @@
       apt: 
        name: docker
        state: present
-    - name: reload doemon
-      command: systemctl daemon-reload
     - name: Start Docker
-      service:
-        name: docker
-        state: started
-        enabled: yes
+      ansible.builtin.systemd:
+       state: started
+       daemon_reload: yes
+       enabled: yes
+       name: docker
     - name: Install docker-py python module
       apt:
         name: docker-py
