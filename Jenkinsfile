@@ -1,7 +1,7 @@
 pipeline {
     agent {label 'node1'}
     environment {
-       docker_tag = "gitVersion"
+       docker_tag = gitVersion()
     } 
     stages {
         stage('Test') {
