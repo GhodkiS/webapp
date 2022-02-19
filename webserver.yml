@@ -18,8 +18,11 @@
     - name: Start Docker
       service:
         name: docker
-        state: started
         enabled: yes
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
     - name: Install docker-py python module
       apt:
         name: docker-py
