@@ -23,10 +23,18 @@
     - name: Install docker-py
       pip:
         name: docker-py
+    - name: Log into DockerHub
+        docker_login:
+        username: ghodkis
+        password: ${password}
     - name: Start the container
       docker_container:
          name: webapp
          image: "ghodkis/javamavenproject:1.0"
          state: started
          published_ports:
+    - name: Log out of DockerHub
+      docker_login:
+        state: absent
+        username: ghodkis
             - 0.0.0.0:8080:8080
