@@ -20,6 +20,9 @@
        state: started
        enabled: yes
        name: docker
+    - name: Install docker-py
+      pip:
+        name: docker-py
     - name: Start the container
       docker_container:
          name: webapp
