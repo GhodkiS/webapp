@@ -24,7 +24,7 @@
       pip:
         name: docker-py
     - name: Log into DockerHub
-        docker_login:
+      docker_login:
         username: ghodkis
         password: {{password}}
     - name: Start the container
