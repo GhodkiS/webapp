@@ -39,6 +39,5 @@
         state: absent
         username: ghodkis
     - name: remove old images from local registry
-      ansible.builtin.shell:
-        cmd: docker rmi $(docker images -q  --filter=reference="ghodkis/javamavenproject:*" | grep -v $(docker images --filter=reference="ghodkis/javamavenproject:{{dockertag}}" -q))
+      ansible.builtin.shell: docker rmi $(docker images -q  --filter=reference="ghodkis/javamavenproject:*" | grep -v $(docker images --filter=reference="ghodkis/javamavenproject:{{dockertag}}" -q))
             
