@@ -28,13 +28,13 @@ pipeline {
                 sh 'docker rmi ghodkis/javamavenproject:1.0'
              }
        }
-          stage('Deploy') {
+       stage('Deploy') {
             steps {
                 withCredentials([string(credentialsId: 'dhubpwd', variable: 'dhubpwd')]) {
                 ansiblePlaybook credentialsId: 'devserver', disableHostKeyChecking: true, installation: 'ansible',extras: "-e password=${dhubpwd}", inventory: 'webserver.inv', playbook: 'webserver.yml'
-             }
-           
+                 }
+            }
             
-        }
+      }
     }
 }
