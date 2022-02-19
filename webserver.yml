@@ -22,7 +22,7 @@
        name: docker
     - name: Install docker-py python module
       apt:
-        name: docker-py
+        name: python-docker
         state: present
     - name: Start the container
       docker_container:
