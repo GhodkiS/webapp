@@ -24,7 +24,7 @@
     
     <header>
       <h1>
-        <a href="#home">Site title</a>
+        <a href="#home">Perl Ice Creams</a>
       </h1>
       <nav>
         <a href="#about">About</a>
